@@ -18,6 +18,7 @@ exports.handler = function(_, _, callback) {
         statusCode: 200,
         body: JSON.stringify({
           name: "Lancaster Laravel",
+          description: "A group of artisans that talk about Laravel a lot and usually meet in Lancaster, Pennsylvania. Currently meeting online.",
           urls: {
             website: "https://lancasterlaravel.com/",
             meetup: "https://www.meetup.com/lancasterlaravel/",
