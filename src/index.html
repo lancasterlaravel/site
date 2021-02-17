@@ -65,13 +65,13 @@
             </div>
 
             <span class="ml-auto inline-flex rounded-md shadow-sm">
-              <a id="event-zoom" disabled title="Join up to 15 minutes earlier than the start of the meetup."
+              <a id="event-link" disabled title="Join up to 15 minutes earlier than the start of the meetup."
                 class="cursor-not-allowed inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-blue-400"
                 active-classes="inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700 transition ease-in-out duration-150">
                 <svg class="-ml-1 mr-3 h-5 w-5" viewBox="0 0 20 20" fill="#fff">
                   <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path>
                 </svg>
-                <span class="text-white">Join with Zoom</span>
+                <span class="text-white">Join</span>
               </a>
             </span>
           </div>
@@ -83,10 +83,10 @@
         .then(res => res.json())
         .then(({ next_meetup }) => {
           if (next_meetup.link !== null) {
-            const zoomLink = document.getElementById('event-zoom')
-            zoomLink.setAttribute('href', next_meetup.link)
-            const zoomLinkActiveClasses = zoomLink.getAttribute('active-classes')
-            zoomLink.setAttribute('class', zoomLinkActiveClasses)
+            const eventLink = document.getElementById('event-link')
+            eventLink.setAttribute('href', next_meetup.link)
+            const eventLinkActiveClasses = eventLink.getAttribute('active-classes')
+            eventLink.setAttribute('class', eventLinkActiveClasses)
           }
 
           document.getElementById('event-name').innerText = next_meetup.name
