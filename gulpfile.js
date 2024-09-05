@@ -4,10 +4,6 @@ gulp.task('html', () => {
   return gulp.src('src/*.html').pipe(gulp.dest('dist/'))
 })
 
-gulp.task('redirects', () => {
-  return gulp.src('src/_redirects').pipe(gulp.dest('dist/'))
-})
-
 gulp.task('css', () => {
   const postcss = require('gulp-postcss')
 
@@ -16,4 +12,4 @@ gulp.task('css', () => {
       .pipe(gulp.dest('./dist'));
 })
 
-gulp.task('build', gulp.series('html', 'redirects', 'css'))
+gulp.task('build', gulp.series('html', 'css'))
