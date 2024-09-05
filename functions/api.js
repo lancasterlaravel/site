@@ -10,9 +10,9 @@ exports.handler = function(_, _, callback) {
 
     res.on('end', () => {
       const json = JSON.parse(body)
-      const event = json[0]
+      const event = json[0] ?? null
 
-      const diffInMinutes = (new Date(event.time) - new Date()) / 1000 / 60
+      const diffInMinutes = event ? (new Date(event.time) - new Date()) / 1000 / 60 : null
 
       callback(null, {
         statusCode: 200,
@@ -23,12 +23,12 @@ exports.handler = function(_, _, callback) {
             website: "https://lancasterlaravel.com/",
             meetup: "https://www.meetup.com/lancasterlaravel/",
           },
-          next_meetup: {
+          next_meetup: event ? {
             name: event.name,
             description: event.description,
             time: event.time,
             link: diffInMinutes > 15 ? null : event.how_to_find_us,
-          },
+          } : null,
         }),
       })
     })
